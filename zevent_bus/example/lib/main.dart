@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:zevent_bus/zevent_bus.dart';
+
 void main() {
   runApp(const MyApp());
 }
 
 const String CUS_KEY = "CUS_KEY";
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -66,23 +66,24 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class _Text extends StatefulWidget {
-  const _Text({ Key? key }) : super(key: key);
+  const _Text({Key? key}) : super(key: key);
 
   @override
   __TextState createState() => __TextState();
 }
 
 class __TextState extends State<_Text> {
-
   String val = "";
   @override
   void initState() {
     super.initState();
-    EventBus.instance.addListener(eventKey: CUS_KEY, callback: (arg) {
-      setState(() {
-        val = "$arg";
-      });
-    });
+    EventBus.instance.addListener(
+        eventKey: CUS_KEY,
+        callback: (arg) {
+          setState(() {
+            val = "$arg";
+          });
+        });
   }
 
   @override
@@ -94,8 +95,8 @@ class __TextState extends State<_Text> {
   @override
   Widget build(BuildContext context) {
     return Text(
-              '$val',
-              style: Theme.of(context).textTheme.headline4,
-            );
+      '$val',
+      style: Theme.of(context).textTheme.headline4,
+    );
   }
 }

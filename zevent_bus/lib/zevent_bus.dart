@@ -3,6 +3,7 @@
 library zevent_bus;
 
 typedef void EventCallback(arg);
+
 class EventBus {
   factory EventBus() => _getInstance();
   static EventBus get instance => _getInstance();

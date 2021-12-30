@@ -1,7 +1,7 @@
 name: zevent_bus
 description: Simple event notification
 version: 0.0.1
-homepage:
+homepage: https://github.com/eyesoffish/zevent_bus/tree/main/zevent_bus
 
 environment:
   sdk: ">=2.15.0 <3.0.0"
