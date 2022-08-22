@@ -74,10 +74,11 @@ class _Text extends StatefulWidget {
 
 class __TextState extends State<_Text> {
   String val = "";
+  EventRemoveCallback? _eventRemoveCallback;
   @override
   void initState() {
     super.initState();
-    EventBus.instance.addListener(
+    _eventRemoveCallback = EventBus.instance.addListener(
         eventKey: CUS_KEY,
         callback: (arg) {
           setState(() {
@@ -88,7 +89,7 @@ class __TextState extends State<_Text> {
 
   @override
   void dispose() {
-    EventBus.instance.removeListener(CUS_KEY);
+    _eventRemoveCallback?.call();
     super.dispose();
   }
 

@@ -1,6 +1,6 @@
 name: zevent_bus
 description: Simple event notification
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/eyesoffish/zevent_bus/tree/main/zevent_bus
 
 environment:

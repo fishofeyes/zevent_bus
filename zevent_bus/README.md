@@ -28,6 +28,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
   void _incrementCounter() {
     _counter += 1;
     EventBus.instance.commit(eventKey: CUS_KEY, arg: "params = $_counter");
@@ -69,10 +70,12 @@ class _Text extends StatefulWidget {
 class __TextState extends State<_Text> {
 
   String val = "";
+  EventRemoveCallback? _eventRemoveCallback;
+  Event
   @override
   void initState() {
     super.initState();
-    EventBus.instance.addListener(eventKey: CUS_KEY, callback: (arg) {
+    _eventRemoveCallback = EventBus.instance.addListener(eventKey: CUS_KEY, callback: (arg) {
       setState(() {
         val = "$arg";
       });
@@ -81,7 +84,7 @@ class __TextState extends State<_Text> {
 
   @override
   void dispose() {
-    EventBus.instance.removeListener(CUS_KEY);
+    _eventRemoveCallback?.call();
     super.dispose();
   }
 
